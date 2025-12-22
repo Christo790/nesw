@@ -1,16 +1,24 @@
-# nesw
+📰 NESW – Flutter News App
 
-A new Flutter project.
+NESW is a simple Flutter news app that displays the latest news using RSS feeds with a clean and minimal UI.
 
-## Getting Started
+✨ Features
 
-This project is a starting point for a Flutter application.
+📡 RSS-based news fetching
 
-A few resources to get you started if this is your first Flutter project:
+📰 Latest news articles
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+🌙 Dark theme UI
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+⚡ Fast & lightweight
+
+🌍 Cross-platform (Android, Web, Desktop)
+<h2>📥 Download APK</h2>
+
+<p>
+  <a href="https://github.com/Christo790/nesw/releases/latest/download/nesw.apk">
+    👉 Click here to download the APK
+  </a>
+</p>
+
+<p>⚠️ Enable <b>“Install from unknown sources”</b> on Android before installing.</p>
