@@ -23,7 +23,6 @@ class Feed extends StatelessWidget {
   Widget build(BuildContext context) {
     final unescape = HtmlUnescape();
 
-    // ✅ Decode HTML entities here
     final decodedDescription = unescape.convert(descriptionHtml);
     final decodedContent = unescape.convert(contentHtml);
 
