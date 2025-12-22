@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:nesw/constant.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:html_unescape/html_unescape.dart';
 
 class Feed extends StatelessWidget {
+  final bool isLoading;
+  final String titleText;
+  final String descriptionHtml;
+  final String contentHtml;
+  final String imageUrl;
 
-  bool isLoading = false;
-
-  String titleText;
-
-  String descriptionHtml;
-
-  String contentHtml;
-
-  String imageUrl;
-
-   Feed({
+  Feed({
     super.key,
+    this.isLoading = false,
     required this.titleText,
     required this.descriptionHtml,
     required this.contentHtml,
@@ -24,10 +21,17 @@ class Feed extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final unescape = HtmlUnescape();
+
+    // ✅ Decode HTML entities here
+    final decodedDescription = unescape.convert(descriptionHtml);
+    final decodedContent = unescape.convert(contentHtml);
+
     return Scaffold(
       backgroundColor: const Color(0xff1F2121),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        elevation: 0,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
@@ -40,7 +44,12 @@ class Feed extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(titleText, style: title, textAlign: TextAlign.center),
+                  Text(
+                    titleText,
+                    style: title,
+                    textAlign: TextAlign.center,
+                  ),
+
                   const SizedBox(height: 20),
 
                   if (imageUrl.isNotEmpty)
@@ -61,9 +70,11 @@ class Feed extends StatelessWidget {
                   const SizedBox(height: 20),
 
                   Html(
-                    data: descriptionHtml,
+                    data: decodedDescription,
                     style: {
                       "body": Style(
+                        margin: Margins.zero,
+                        padding: HtmlPaddings.zero,
                         color: Colors.white,
                         fontSize: FontSize(16),
                         fontFamily: paragrah.fontFamily,
@@ -71,14 +82,15 @@ class Feed extends StatelessWidget {
                     },
                   ),
 
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 12),
 
                   Html(
-                    data: contentHtml,
+                    data: decodedContent,
                     style: {
                       "body": Style(
+                        margin: Margins.zero,
+                        padding: HtmlPaddings.zero,
                         color: Colors.white,
-                        textAlign: TextAlign.start,
                         fontSize: FontSize(16),
                         lineHeight: LineHeight(1.6),
                         fontFamily: paragrah.fontFamily,
