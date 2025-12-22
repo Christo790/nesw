@@ -19,4 +19,3 @@ NESW is a simple Flutter news app that displays the latest news using RSS feeds 
    <image src="https://i.ibb.co/q0mdc4Z/get-it-on-github.png" height="80"/>
  </a>
 
-<p>⚠️ Enable <b>“Install from unknown sources”</b> on Android before installing.</p>
