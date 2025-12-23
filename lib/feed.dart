@@ -10,7 +10,7 @@ class Feed extends StatelessWidget {
   final String contentHtml;
   final String imageUrl;
 
-  Feed({
+  const Feed({
     super.key,
     this.isLoading = false,
     required this.titleText,
